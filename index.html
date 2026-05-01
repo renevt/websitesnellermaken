@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Website sneller maken? Wij checken je PageSpeed en verbeteren waar mogelijk je laadtijd. Optimalisatie vanaf €50. Voor kleine ondernemers met een trage website.">
+    <meta name="keywords" content="website sneller maken, trage website verbeteren, pagespeed optimalisatie, website snelheid verbeteren, mobiele website sneller maken, laadtijd verbeteren">
+    <meta name="theme-color" content="#10b981">
+    <title>Website Sneller Maken | PageSpeed Optimalisatie vanaf €50 | SiteSnel24</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --border-light: #1e293b;
+            --red: #ef4444;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--bg-dark);
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background-color: rgba(15, 23, 42, 0.9);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+        }
+
+        @media (min-width: 768px) {
+            .logo {
+                font-size: 24px;
+            }
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary);
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 120px 0 80px;
+            }
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 56px;
+            }
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        @media (min-width: 768px) {
+            .hero p {
+                font-size: 20px;
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--bg-dark);
+            box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.39);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .section {
+            padding: 80px 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        @media (min-width: 768px) {
+            .section {
+                padding: 100px 0;
+            }
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            color: var(--text-primary);
+            margin-bottom: 60px;
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 768px) {
+            .section-title {
+                font-size: 42px;
+            }
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 640px) {
+            .problems-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .problems-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .problem-card {
+            background: var(--bg-card);
+            padding: 32px 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--red);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--red);
+        }
+
+        .problem-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .problem-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+        }
+
+        .problem-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            font-size: 15px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .solution-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(30, 41, 59, 0.5) 100%);
+            padding: 48px 32px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        @media (min-width: 768px) {
+            .solution-content {
+                padding: 60px;
+            }
+        }
+
+        .solution-content h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+        }
+
+        .solution-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .solution-list li {
+            padding: 16px 0;
+            padding-left: 40px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 16px;
+            border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+        }
+
+        .solution-list li:last-child {
+            border-bottom: none;
+        }
+
+        .solution-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            top: 16px;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 22px;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 50%;
+        }
+
+        .solution-highlight {
+            background: rgba(16, 185, 129, 0.1);
+            border-left: 3px solid var(--primary);
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-top: 24px;
+        }
+
+        .solution-highlight p {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 17px;
+        }
+
+        .offer-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 48px 32px;
+            border-radius: 16px;
+            border: 2px solid var(--primary);
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .offer-box {
+                padding: 60px;
+            }
+        }
+
+        .offer-box h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .offer-box p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .price-indication {
+            background: rgba(16, 185, 129, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+        }
+
+        .price-indication p {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .process-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+        }
+
+        .process-step h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .process-step p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .trust-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .trust-item {
+            background: var(--bg-card);
+            padding: 32px 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .trust-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .trust-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .trust-item h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .trust-item p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary);
+        }
+
+        .faq-question {
+            padding: 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--text-primary);
+            user-select: none;
+            transition: background-color 0.2s;
+            font-size: 16px;
+        }
+
+        .faq-question:hover {
+            background-color: var(--bg-card-hover);
+        }
+
+        .faq-toggle {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 24px;
+            flex-shrink: 0;
+            margin-left: 16px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            background-color: rgba(15, 23, 42, 0.5);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 400px;
+            padding: 0 24px 24px;
+        }
+
+        .faq-answer-content {
+            padding-top: 8px;
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .cta-final {
+            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(30, 41, 59, 0.8) 100%);
+            padding: 60px 32px;
+            text-align: center;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .cta-final {
+                padding: 80px 60px;
+            }
+        }
+
+        .cta-final h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        @media (min-width: 768px) {
+            .cta-final h2 {
+                font-size: 40px;
+            }
+        }
+
+        .cta-final p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        footer {
+            background-color: var(--bg-dark);
+            border-top: 1px solid var(--border-light);
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            text-align: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+
+        footer p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        footer strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .whatsapp-floating {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 64px;
+            height: 64px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .whatsapp-floating:hover {
+            background-color: #1ebd59;
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-floating svg {
+            width: 36px;
+            height: 36px;
+            fill: white;
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-floating {
+                width: 56px;
+                height: 56px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-floating svg {
+                width: 32px;
+                height: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">SiteSnel24</div>
+                <ul class="nav-links">
+                    <li><a href="#probleem">Probleem</a></li>
+                    <li><a href="#aanpak">Aanpak</a></li>
+                    <li><a href="#aanbod">Aanbod</a></li>
+                    <li><a href="#proces">Proces</a></li>
+                    <li><a href="#faq">Vragen</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Is je website traag?<br>Wij meten wat er misgaat.</h1>
+            <p>We checken je PageSpeed en laadtijd. Waar mogelijk maken we je website sneller. Voor kleine ondernemers met een trage site.</p>
+            <a href="https://wa.me/31646950301?text=Hoi%2C%20ik%20wil%20graag%20mijn%20website%20laten%20checken%20op%20snelheid." class="btn btn-primary">Gratis snelheidscheck</a>
+        </div>
+    </section>
+
+    <section class="section" id="probleem">
+        <div class="container">
+            <h2 class="section-title">Waarom een trage website vervelend is</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">🐌</div>
+                    <h3>Lange laadtijd</h3>
+                    <p>Als je site traag laadt, wachten bezoekers niet. Ze klikken weg.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📱</div>
+                    <h3>Slecht op telefoon</h3>
+                    <p>Veel mensen zoeken op hun telefoon. Een trage mobiele site frustreert.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">📉</div>
+                    <h3>Lage PageSpeed score</h3>
+                    <p>Google PageSpeed geeft je site een cijfer. Een lage score kan invloed hebben op je vindbaarheid.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">⚠️</div>
+                    <h3>Overbodige code</h3>
+                    <p>Oude of slecht gebouwde websites hebben vaak code die niet nodig is. Dat maakt alles trager.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="aanpak">
+        <div class="container">
+            <h2 class="section-title">Wat we checken en verbeteren</h2>
+            <div class="solution-content">
+                <h3>Onze aanpak:</h3>
+                <ul class="solution-list">
+                    <li>Google PageSpeed score meten en analyseren</li>
+                    <li>Mobiele snelheid testen en waar mogelijk verbeteren</li>
+                    <li>Laadtijd van je pagina's checken</li>
+                    <li>Afbeeldingen verkleinen en optimaliseren</li>
+                    <li>Overbodige code opschonen</li>
+                    <li>Hosting en technische instellingen controleren</li>
+                </ul>
+                <div class="solution-highlight">
+                    <p>We geven je een eerlijk advies. Soms is het beter om opnieuw te beginnen. Dat vertellen we je gewoon.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="aanbod">
+        <div class="container">
+            <h2 class="section-title">Wat kost het?</h2>
+            <div class="offer-box">
+                <h3>Gratis snelheidscheck</h3>
+                <p>Stuur ons je website via WhatsApp. We meten de snelheid, checken de PageSpeed score en geven je advies. Daarna krijg je een duidelijk voorstel met prijs.</p>
+                <div class="price-indication">
+                    <p>Optimalisatie vanaf €50</p>
+                </div>
+                <a href="https://wa.me/31646950301?text=Hoi%2C%20ik%20wil%20graag%20een%20gratis%20snelheidscheck%20van%20mijn%20website." class="btn btn-primary">Vraag gratis check aan</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="proces">
+        <div class="container">
+            <h2 class="section-title">Zo werkt het</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Stuur je link</h3>
+                    <p>Stuur ons de link van je website via WhatsApp. Meer hoef je niet te doen.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Ontvang advies</h3>
+                    <p>We checken je site en geven binnen 24 uur advies met een duidelijk voorstel.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Wij verbeteren</h3>
+                    <p>Akkoord? Dan gaan we aan de slag en maken we je site waar mogelijk sneller.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Waarom ondernemers voor ons kiezen</h2>
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">⚡</div>
+                    <h3>Simpel proces</h3>
+                    <p>Je stuurt een link, wij doen de rest. Geen ingewikkelde procedures.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🎯</div>
+                    <h3>Geen technische kennis nodig</h3>
+                    <p>Jij hoeft niks van techniek te weten. Wij leggen alles uit in gewoon Nederlands.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🚀</div>
+                    <h3>Snel resultaat</h3>
+                    <p>Check binnen 24 uur. Verbeteringen meestal binnen een paar dagen klaar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Veelgestelde vragen</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Kan elke website sneller gemaakt worden?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Niet altijd volledig. Sommige websites zijn zo oud of slecht gebouwd dat optimalisatie weinig helpt. In dat geval adviseren we eerlijk om opnieuw te beginnen. We geven altijd realistisch advies.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Wat checken jullie precies?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We meten je Google PageSpeed score, checken de laadtijd, kijken naar afbeeldingen, code, hosting en mobiele prestaties. Je krijgt een duidelijk rapport met wat goed is en wat beter kan.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Heb ik een nieuwe website nodig?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Niet altijd. Vaak kunnen we je bestaande site verbeteren. Soms is het beter om opnieuw te beginnen. Na de gratis check weten we het zeker en geven we je eerlijk advies.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Wat kost website snelheid verbeteren?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Dat hangt af van je website. Optimalisatie begint vanaf €50 voor kleine verbeteringen. Grotere aanpassingen kunnen meer kosten. Na de gratis check krijg je een helder voorstel met prijs.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Hoe lang duurt het proces?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            De gratis check doen we binnen 24 uur. Optimalisatie duurt meestal 2-5 werkdagen, afhankelijk van wat er nodig is. We houden je op de hoogte van de voortgang.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Hebben jullie login toegang nodig?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Voor de gratis check niet. Als we gaan optimaliseren hebben we vaak wel toegang nodig tot je website backend of hosting. We leggen precies uit wat we nodig hebben en waarom.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="cta-final">
+                <h2>Klaar om je website te laten checken?</h2>
+                <p>Stuur je website link via WhatsApp. We meten de snelheid en geven je binnen 24 uur advies.</p>
+                <a href="https://wa.me/31646950301?text=Hoi%2C%20ik%20wil%20graag%20een%20gratis%20snelheidscheck%20van%20mijn%20website." class="btn btn-primary">Start gratis check</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p><strong>SiteSnel24.nl</strong> | Website sneller maken voor ondernemers</p>
+                </div>
+                <div>
+                    <p>© 2026 SiteSnel24. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/31646950301?text=Hoi%2C%20ik%20wil%20graag%20een%20gratis%20snelheidscheck%20van%20mijn%20website." class="whatsapp-floating" aria-label="Chat via WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script>
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
